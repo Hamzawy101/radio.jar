@@ -35,19 +35,37 @@ jobs:
           rm -rf build dist
           mkdir -p build/lib build/classes build/pre dist
           curl -fsSL -o build/lib/midp.jar $MAVEN/org/microemu/microemu-midp/2.0.4/microemu-midp-2.0.4.jar
+          curl -fsSL -o build/lib/cldc.jar $MAVEN/org/microemu/microemu-cldc/2.0.4/microemu-cldc-2.0.4.jar
           curl -fsSL -o build/lib/jsr135.jar $MAVEN/org/microemu/microemu-jsr-135/2.0.4/microemu-jsr-135-2.0.4.jar
           curl -fsSL -o build/pg.zip https://github.com/Guardsquare/proguard/releases/download/v$PG_VER/proguard-$PG_VER.zip
           unzip -q build/pg.zip -d build/pg
           PG=$(find build/pg -name proguard.jar | head -1)
+          mkdir -p build/stubsrc/javax/microedition/lcdui build/stubclasses
+          cat > build/stubsrc/javax/microedition/lcdui/Display.java <<STUBEOF
+          package javax.microedition.lcdui;
+          public class Display {
+            public static Display getDisplay(javax.microedition.midlet.MIDlet m) { return null; }
+            public void setCurrent(Displayable d) { }
+            public void setCurrent(Alert a, Displayable d) { }
+            public Displayable getCurrent() { return null; }
+            public boolean flashBackLight(int d) { return false; }
+          }
+          STUBEOF
+          javac -source 1.3 -target 1.1 -nowarn -bootclasspath "$RT" -classpath build/lib/midp.jar:build/lib/cldc.jar -d build/stubclasses build/stubsrc/javax/microedition/lcdui/Display.java
+          jar cf build/lib/stubs.jar -C build/stubclasses .
+          LIBS=build/lib/stubs.jar:build/lib/midp.jar:build/lib/cldc.jar:build/lib/jsr135.jar
           javac -source 1.3 -target 1.1 -nowarn -bootclasspath "$RT" \
-            -classpath build/lib/midp.jar:build/lib/jsr135.jar -d build/classes *.java
+            -classpath $LIBS -d build/classes *.java
           jar cf build/in.jar -C build/classes .
           cat > build/pg.conf <<PGEOF
           -injars build/in.jar
           -outjars build/out.jar
           -libraryjars $RT
+          -libraryjars build/lib/stubs.jar
           -libraryjars build/lib/midp.jar
+          -libraryjars build/lib/cldc.jar
           -libraryjars build/lib/jsr135.jar
+          -dontnote
           -microedition
           -dontshrink
           -dontoptimize
