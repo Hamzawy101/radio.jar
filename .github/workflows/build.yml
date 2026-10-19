@@ -58,13 +58,13 @@ jobs:
             -classpath $LIBS -d build/classes *.java
           jar cf build/in.jar -C build/classes .
           cat > build/pg.conf <<PGEOF
-          -injars build/in.jar
-          -outjars build/out.jar
+          -injars $PWD/build/in.jar
+          -outjars $PWD/build/out.jar
           -libraryjars $RT
-          -libraryjars build/lib/stubs.jar
-          -libraryjars build/lib/midp.jar
-          -libraryjars build/lib/cldc.jar
-          -libraryjars build/lib/jsr135.jar
+          -libraryjars $PWD/build/lib/stubs.jar
+          -libraryjars $PWD/build/lib/midp.jar
+          -libraryjars $PWD/build/lib/cldc.jar
+          -libraryjars $PWD/build/lib/jsr135.jar
           -dontnote
           -microedition
           -dontshrink
