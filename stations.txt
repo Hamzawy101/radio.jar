@@ -1,0 +1,137 @@
+# Country|Genre|Name|Stream URL   (one station per line, plain http:// only)
+# Edit this file on GitHub and the Actions build makes a new Radio.jar with your changes.
+# The build's "Station check" report tells you which of these still answer.
+Internet|Ambient/Chill|SomaFM Groove Salad|http://ice1.somafm.com/groovesalad-128-mp3
+Internet|Ambient/Chill|SomaFM Groove Salad Classic|http://ice1.somafm.com/gsclassic-128-mp3
+Internet|Ambient/Chill|SomaFM Drone Zone|http://ice1.somafm.com/dronezone-128-mp3
+Internet|Ambient/Chill|SomaFM Deep Space One|http://ice1.somafm.com/deepspaceone-128-mp3
+Internet|Electronic|SomaFM Space Station Soma|http://ice1.somafm.com/spacestation-128-mp3
+Internet|Ambient/Chill|SomaFM Lush|http://ice1.somafm.com/lush-128-mp3
+Internet|Ambient/Chill|SomaFM Secret Agent|http://ice1.somafm.com/secretagent-128-mp3
+Internet|Alternative|SomaFM Indie Pop Rocks|http://ice1.somafm.com/indiepop-128-mp3
+Internet|Oldies/Retro|SomaFM Underground 80s|http://ice1.somafm.com/u80s-128-mp3
+Internet|Electronic|SomaFM DEF CON Radio|http://ice1.somafm.com/defcon-128-mp3
+Internet|Oldies/Retro|SomaFM Left Coast 70s|http://ice1.somafm.com/seventies-128-mp3
+Internet|Ambient/Chill|SomaFM Synphaera|http://ice1.somafm.com/synphaera-128-mp3
+Internet|Folk/World|SomaFM Folk Forward|http://ice1.somafm.com/folkfwd-128-mp3
+Internet|Folk/World|SomaFM Boot Liquor|http://ice1.somafm.com/bootliquor-128-mp3
+Internet|Electronic|SomaFM Beat Blender|http://ice1.somafm.com/beatblender-128-mp3
+Internet|Electronic|SomaFM The Trip|http://ice1.somafm.com/thetrip-128-mp3
+Internet|Folk/World|SomaFM Thistle Radio|http://ice1.somafm.com/thistle-128-mp3
+Internet|Pop/Hits|SomaFM PopTron|http://ice1.somafm.com/poptron-128-mp3
+Internet|Jazz|SomaFM Sonic Universe|http://ice1.somafm.com/sonicuniverse-128-mp3
+Internet|Electronic|SomaFM Suburbs of Goa|http://ice1.somafm.com/suburbsofgoa-128-mp3
+Internet|Jazz|SomaFM Illinois Street Lounge|http://ice1.somafm.com/illstreet-128-mp3
+Internet|Electronic|SomaFM Dub Step Beyond|http://ice1.somafm.com/dubstep-128-mp3
+Internet|Oldies/Retro|SomaFM Seven Inch Soul|http://ice1.somafm.com/7soul-128-mp3
+Internet|Eclectic|SomaFM Black Rock FM|http://ice1.somafm.com/brfm-128-mp3
+Internet|Electronic|SomaFM cliqhop idm|http://ice1.somafm.com/cliqhop-128-mp3
+Internet|Reggae|SomaFM Heavyweight Reggae|http://ice1.somafm.com/reggae-128-mp3
+Internet|Ambient/Chill|SomaFM Dark Zone|http://ice1.somafm.com/darkzone-128-mp3
+Internet|Electronic|SomaFM Fluid|http://ice1.somafm.com/fluid-128-mp3
+Internet|Electronic|SomaFM Vaporwaves|http://ice1.somafm.com/vaporwaves-128-mp3
+Internet|Metal|SomaFM Metal Detector|http://ice1.somafm.com/metal-128-mp3
+Internet|Ambient/Chill|SomaFM Mission Control|http://ice1.somafm.com/missioncontrol-128-mp3
+Internet|News/Talk|SomaFM SF 10-33|http://ice1.somafm.com/sf1033-128-mp3
+Internet|Eclectic|Radio Paradise Main Mix|http://stream.radioparadise.com/mp3-128
+Internet|Eclectic|Radio Paradise Global Mix|http://stream.radioparadise.com/global-128
+Internet|Ambient/Chill|Radio Paradise Mellow Mix|http://stream.radioparadise.com/mellow-128
+Internet|Ambient/Chill|Ambient Sleeping Pill|http://radio.stereoscenic.com/asp-h
+Internet|Rock|Radio Paradise Rock Mix|http://stream.radioparadise.com/rock-128
+Internet|Electronic|Hirschmilch Prog House|http://hirschmilch.de:7000/prog-house.mp3
+Internet|Electronic|Hirschmilch Psytrance|http://hirschmilch.de:7000/psytrance.mp3
+Internet|Electronic|Hirschmilch Chill|http://hirschmilch.de:7000/chill.mp3
+Internet|Rock|Radio Caroline|http://sc3.radiocaroline.net:10558/
+United Kingdom|Pop/Hits|Capital FM|http://media-ice.musicradio.com/CapitalMP3
+United Kingdom|Pop/Hits|Heart London|http://media-ice.musicradio.com/HeartLondonMP3
+United Kingdom|Classical|Classic FM|http://media-ice.musicradio.com/ClassicFMMP3
+United Kingdom|Jazz|Smooth Radio London|http://media-ice.musicradio.com/SmoothLondonMP3
+United Kingdom|Oldies/Retro|Gold|http://media-ice.musicradio.com/GoldMP3
+United Kingdom|Rock|Radio X|http://media-ice.musicradio.com/RadioXUKMP3
+United Kingdom|News/Talk|LBC|http://media-ice.musicradio.com/LBCUKMP3
+United Kingdom|News/Talk|BBC World Service|http://stream.live.vc.bbcmedia.co.uk/bbc_world_service
+France|News/Talk|France Inter|http://icecast.radiofrance.fr/franceinter-midfi.mp3
+France|News/Talk|franceinfo|http://icecast.radiofrance.fr/franceinfo-midfi.mp3
+France|News/Talk|France Culture|http://icecast.radiofrance.fr/franceculture-midfi.mp3
+France|Classical|France Musique|http://icecast.radiofrance.fr/francemusique-midfi.mp3
+France|Eclectic|FIP|http://icecast.radiofrance.fr/fip-midfi.mp3
+France|Rock|FIP Rock|http://icecast.radiofrance.fr/fiprock-midfi.mp3
+France|Jazz|FIP Jazz|http://icecast.radiofrance.fr/fipjazz-midfi.mp3
+France|Electronic|FIP Groove|http://icecast.radiofrance.fr/fipgroove-midfi.mp3
+France|Folk/World|FIP World|http://icecast.radiofrance.fr/fipworld-midfi.mp3
+France|Electronic|FIP Electro|http://icecast.radiofrance.fr/fipelectro-midfi.mp3
+France|Alternative|FIP Nouveautes|http://icecast.radiofrance.fr/fipnouveautes-midfi.mp3
+France|Pop/Hits|Mouv|http://icecast.radiofrance.fr/mouv-midfi.mp3
+France|Pop/Hits|Skyrock|http://icecast.skyrock.net/s/natio_mp3_128k
+France|Jazz|Jazz Radio|http://jazzradio.ice.infomaniak.ch/jazzradio-high.mp3
+France|Classical|Radio Classique|http://radioclassique.ice.infomaniak.ch/radioclassique-high.mp3
+Germany|News/Talk|Deutschlandfunk|http://st01.dlf.de/dlf/01/128/mp3/stream.mp3
+Germany|News/Talk|Deutschlandfunk Kultur|http://st02.dlf.de/dlf/02/128/mp3/stream.mp3
+Germany|News/Talk|Deutschlandfunk Nova|http://st03.dlf.de/dlf/03/128/mp3/stream.mp3
+Germany|Pop/Hits|1LIVE|http://wdr-1live-live.icecast.wdr.de/wdr/1live/live/mp3/128/stream.mp3
+Germany|Pop/Hits|WDR 2|http://wdr-wdr2-rheinland.icecast.wdr.de/wdr/wdr2/rheinland/mp3/128/stream.mp3
+Germany|Pop/Hits|NDR 2|http://icecast.ndr.de/ndr/ndr2/niedersachsen/mp3/128/stream.mp3
+Germany|Pop/Hits|Antenne Bayern|http://stream.antenne.de/antenne
+Germany|Rock|Rock Antenne|http://stream.rockantenne.de/rockantenne/stream/mp3
+Germany|Rock|Radio Bob|http://streams.radiobob.de/bob-live/mp3-192/mediaplayer
+Germany|Classical|WDR 3|http://wdr-wdr3-live.icecast.wdr.de/wdr/wdr3/live/mp3/128/stream.mp3
+Netherlands|News/Talk|NPO Radio 1|http://icecast.omroep.nl/radio1-bb-mp3
+Netherlands|Pop/Hits|NPO Radio 2|http://icecast.omroep.nl/radio2-bb-mp3
+Netherlands|Pop/Hits|NPO 3FM|http://icecast.omroep.nl/3fm-bb-mp3
+Netherlands|Pop/Hits|Radio 538|http://playerservices.streamtheworld.com/api/livestream-redirect/RADIO538.mp3
+Netherlands|Pop/Hits|Sky Radio|http://playerservices.streamtheworld.com/api/livestream-redirect/SKYRADIO.mp3
+Netherlands|Pop/Hits|Qmusic|http://icecast-qmusicnl-cdp.triple-it.nl/Qmusic_nl_live_96.mp3
+Netherlands|Classical|NPO Radio 4|http://icecast.omroep.nl/radio4-bb-mp3
+Belgium|Alternative|Studio Brussel|http://icecast.vrtcdn.be/stubru-high.mp3
+Belgium|News/Talk|VRT Radio 1|http://icecast.vrtcdn.be/radio1-high.mp3
+Belgium|Pop/Hits|MNM|http://icecast.vrtcdn.be/mnm-high.mp3
+Belgium|Classical|Klara|http://icecast.vrtcdn.be/klara-high.mp3
+Switzerland|Pop/Hits|Radio Swiss Pop|http://stream.srg-ssr.ch/m/rsp/mp3_128
+Switzerland|Pop/Hits|SRF 3|http://stream.srg-ssr.ch/m/drs3/mp3_128
+Switzerland|Pop/Hits|Couleur 3|http://stream.srg-ssr.ch/m/couleur3/mp3_128
+Switzerland|Jazz|Radio Swiss Jazz|http://stream.srg-ssr.ch/m/rsj/mp3_128
+Switzerland|Classical|Radio Swiss Classic|http://stream.srg-ssr.ch/m/rsc_de/mp3_128
+Switzerland|News/Talk|SRF 1|http://stream.srg-ssr.ch/m/drs1/mp3_128
+Italy|Pop/Hits|Radio 105|http://icecast.unitedradio.it/Radio105.mp3
+Italy|Pop/Hits|Virgin Radio Italia|http://icecast.unitedradio.it/Virgin.mp3
+Spain|Pop/Hits|LOS40|http://playerservices.streamtheworld.com/api/livestream-redirect/LOS40.mp3
+Spain|News/Talk|Cadena SER|http://playerservices.streamtheworld.com/api/livestream-redirect/CADENASER.mp3
+Portugal|Pop/Hits|Antena 3|http://radiocast.rtp.pt/antena380a.mp3
+Portugal|News/Talk|Antena 1|http://radiocast.rtp.pt/antena180a.mp3
+Portugal|Classical|Antena 2|http://radiocast.rtp.pt/antena280a.mp3
+Norway|News/Talk|NRK P1|http://lyd.nrk.no/nrk_radio_p1_ostlandssendingen_mp3_h
+Norway|News/Talk|NRK Alltid Nyheter|http://lyd.nrk.no/nrk_radio_alltid_nyheter_mp3_h
+Norway|Pop/Hits|NRK P3|http://lyd.nrk.no/nrk_radio_p3_mp3_h
+Norway|Classical|NRK Klassisk|http://lyd.nrk.no/nrk_radio_klassisk_mp3_h
+Denmark|News/Talk|DR P1|http://live-icy.gss.dr.dk/A/A03H.mp3
+Denmark|Pop/Hits|DR P3|http://live-icy.gss.dr.dk/A/A05H.mp3
+Czechia|News/Talk|Cesky rozhlas Radiozurnal|http://icecast8.play.cz/cro1-128.mp3
+Czechia|News/Talk|Cesky rozhlas Dvojka|http://icecast8.play.cz/cro2-128.mp3
+Poland|News/Talk|Polskie Radio Jedynka|http://stream3.polskieradio.pl:8900/
+Poland|Classical|Polskie Radio Dwojka|http://stream3.polskieradio.pl:8902/
+Poland|Pop/Hits|Polskie Radio Trojka|http://stream3.polskieradio.pl:8904/
+Hungary|News/Talk|Kossuth Radio|http://icast.connectmedia.hu/4736/mr1.mp3
+Hungary|Pop/Hits|Petofi Radio|http://icast.connectmedia.hu/4738/mr2.mp3
+Russia|Pop/Hits|Europa Plus|http://ep128.hostingradio.ru:8030/ep128
+Russia|Pop/Hits|Russkoe Radio|http://rusradio.hostingradio.ru/rusradio128.mp3
+Russia|Pop/Hits|DFM|http://dfm.hostingradio.ru/dfm96.aacp
+Russia|Oldies/Retro|Retro FM|http://retroserver.streamr.ru:8043/retro256.mp3
+Russia|Rock|Nashe Radio|http://nashe1.hostingradio.ru/nashe-128.mp3
+Ukraine|Pop/Hits|Hit FM|http://online.hitfm.ua/HitFM
+Ukraine|Pop/Hits|Kiss FM|http://online.kissfm.ua/KissFM
+Ukraine|Rock|Radio ROKS|http://online.radioroks.ua/RadioROKS
+Turkey|Pop/Hits|Power Turk|http://listen.powerapp.com.tr/powerturk/mpeg/icecast.audio
+USA|Eclectic|WFMU New York|http://stream0.wfmu.org/freeform-128k
+USA|Eclectic|KEXP Seattle|http://live-mp3-128.kexp.org/kexp128.mp3
+USA|News/Talk|WBEZ Chicago|http://stream.wbez.org/wbez128.mp3
+USA|News/Talk|WNYC FM|http://fm939.wnyc.org/wnycfm
+USA|News/Talk|KQED San Francisco|http://streams.kqed.org/kqedradio
+USA|Jazz|WWOZ New Orleans|http://wwoz-sc.streamguys.com/wwoz-hi.mp3
+USA|Classical|WQXR New York|http://stream.wqxr.org/wqxr
+Australia|Alternative|triple j|http://live-radio01.mediahubaustralia.com/2TJW/mp3/
+Australia|Alternative|Double J|http://live-radio01.mediahubaustralia.com/2DJW/mp3/
+Australia|Classical|ABC Classic|http://live-radio01.mediahubaustralia.com/2FMW/mp3/
+Australia|News/Talk|ABC Radio National|http://live-radio01.mediahubaustralia.com/2RNW/mp3/
+Australia|News/Talk|ABC NewsRadio|http://live-radio01.mediahubaustralia.com/2NRW/mp3/
+New Zealand|News/Talk|RNZ National|http://radionz-ice.streamguys.com/national.mp3
+New Zealand|Classical|RNZ Concert|http://radionz-ice.streamguys.com/concert.mp3
