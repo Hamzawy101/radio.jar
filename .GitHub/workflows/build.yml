@@ -1,0 +1,127 @@
+name: Build Radio MIDlet
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Locate project folder
+        run: |
+          f=$(find . -name RadioMIDlet.java | head -1)
+          if [ -z "$f" ]; then echo "RadioMIDlet.java not found in the repo - upload all the project files"; exit 1; fi
+          echo "DIR=$(dirname "$f")" >> "$GITHUB_ENV"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '8'
+      - name: Build Radio.jar and Radio.jad
+        working-directory: ${{ env.DIR }}
+        run: |
+          set -e
+          RT="$JAVA_HOME/jre/lib/rt.jar"
+          [ -f "$RT" ] || RT="$JAVA_HOME/lib/rt.jar"
+          MAVEN=https://repo1.maven.org/maven2
+          PG_VER=7.4.2
+          for need in stations.txt icon.png; do
+            [ -f "$need" ] || { echo "Missing $need - upload it next to the .java files"; exit 1; }
+          done
+          rm -rf build dist
+          mkdir -p build/lib build/classes build/pre dist
+          curl -fsSL -o build/lib/midp.jar $MAVEN/org/microemu/microemu-midp/2.0.4/microemu-midp-2.0.4.jar
+          curl -fsSL -o build/lib/jsr135.jar $MAVEN/org/microemu/microemu-jsr-135/2.0.4/microemu-jsr-135-2.0.4.jar
+          curl -fsSL -o build/pg.zip https://github.com/Guardsquare/proguard/releases/download/v$PG_VER/proguard-$PG_VER.zip
+          unzip -q build/pg.zip -d build/pg
+          PG=$(find build/pg -name proguard.jar | head -1)
+          javac -source 1.3 -target 1.1 -nowarn -bootclasspath "$RT" \
+            -classpath build/lib/midp.jar:build/lib/jsr135.jar -d build/classes *.java
+          jar cf build/in.jar -C build/classes .
+          cat > build/pg.conf <<PGEOF
+          -injars build/in.jar
+          -outjars build/out.jar
+          -libraryjars $RT
+          -libraryjars build/lib/midp.jar
+          -libraryjars build/lib/jsr135.jar
+          -microedition
+          -dontshrink
+          -dontoptimize
+          -dontobfuscate
+          -dontwarn
+          -ignorewarnings
+          -keep public class RadioMIDlet
+          PGEOF
+          java -jar "$PG" @build/pg.conf
+          cd build/pre
+          unzip -q ../out.jar
+          rm -rf META-INF
+          cp ../../stations.txt ../../icon.png .
+          cd ../..
+          cat > build/MANIFEST.MF <<MFEOF
+          MIDlet-1: Radio,/icon.png,RadioMIDlet
+          MIDlet-Name: Radio
+          MIDlet-Vendor: Home
+          MIDlet-Version: 1.0.0
+          MicroEdition-Configuration: CLDC-1.1
+          MicroEdition-Profile: MIDP-2.0
+          MIDlet-Permissions: javax.microedition.io.Connector.http
+          MFEOF
+          jar cfm dist/Radio.jar build/MANIFEST.MF -C build/pre .
+          SIZE=$(wc -c < dist/Radio.jar | tr -d ' ')
+          { cat build/MANIFEST.MF; echo "MIDlet-Jar-URL: Radio.jar"; echo "MIDlet-Jar-Size: $SIZE"; } > dist/Radio.jad
+          ls -l dist
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Radio-midlet
+          path: ${{ env.DIR }}/dist/*
+      - name: Publish as release "latest"
+        if: github.ref_type == 'branch'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release delete latest --yes --cleanup-tag || true
+          gh release create latest "$DIR/dist/Radio.jar" "$DIR/dist/Radio.jad" \
+            --target "$GITHUB_SHA" --title "Latest build" \
+            --notes "Radio.jar + Radio.jad for Nokia S60 (MIDP 2.0). Copy to the phone and open the .jar or .jad."
+
+  check-stations:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check stations
+        run: |
+          f=$(find . -name stations.txt | head -1)
+          [ -n "$f" ] || { echo "stations.txt not found"; exit 1; }
+          grep -v '^#' "$f" | tr -d '\r' | grep '|' > /tmp/stations.lst
+          check() {
+            line="$1"
+            name=$(echo "$line" | cut -d'|' -f3)
+            url=$(echo "$line" | cut -d'|' -f4)
+            res=$(curl -s -L --http0.9 -m 8 -r 0-4096 -A "Mozilla/5.0" -o /dev/null -w "%{http_code} %{content_type} %{url_effective}" "$url" 2>/dev/null)
+            code=${res%% *}
+            rest=${res#* }
+            final=${rest#* }
+            if [ "$code" = "200" ] || [ "$code" = "206" ]; then
+              case "$final" in
+                https://*) echo "HTTPS-ONLY  | $name | $url" ;;
+                *)         echo "OK          | $name" ;;
+              esac
+            else
+              echo "DEAD ($code)  | $name | $url"
+            fi
+          }
+          export -f check
+          xargs -a /tmp/stations.lst -d '\n' -P 8 -I{} bash -c 'check "$1"' _ {} | sort > station-report.txt
+          echo "OK: $(grep -c '^OK' station-report.txt)   HTTPS-only: $(grep -c '^HTTPS' station-report.txt)   Dead: $(grep -c '^DEAD' station-report.txt)" | cat - station-report.txt > /tmp/r
+          mv /tmp/r station-report.txt
+          { echo '### Station check'; echo '```'; cat station-report.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: station-report
+          path: station-report.txt
